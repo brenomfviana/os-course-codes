@@ -4,28 +4,28 @@
 #include <unistd.h>
 
 // Função signal handler responsável por tratar o sinal
-void detectarAlarme(int sig) {
+void detectar_alarme(int sig) {
     printf("O alarme expirou!\n");
     exit(0);
 }
 
 int main(int argc, char *argv[]) {
     // Instala o tratamento do alarme
-    signal(SIGALRM, detectarAlarme);
+    signal(SIGALRM, detectar_alarme);
 
-    unsigned int tempoRestanteAlarmeAnterior;
-    tempoRestanteAlarmeAnterior = alarm(5);
-    printf("Tempo restante do alarme anterior: %d\n", tempoRestanteAlarmeAnterior);
+    unsigned int tempo_restante;
+    tempo_restante = alarm(5);
+    printf("Tempo restante do alarme anterior: %d\n", tempo_restante);
     sleep(2);
 
     // Ao chamar alarm() antes do alarme anterior expirar,
     // faz com que o alarme anterior seja perdido
-    tempoRestanteAlarmeAnterior = alarm(5);
-    printf("Tempo restante do alarme anterior: %d\n", tempoRestanteAlarmeAnterior);
+    tempo_restante = alarm(5);
+    printf("Tempo restante do alarme anterior: %d\n", tempo_restante);
     sleep(1);
 
-    tempoRestanteAlarmeAnterior = alarm(5);
-    printf("Tempo restante do alarme anterior: %d\n", tempoRestanteAlarmeAnterior);
+    tempo_restante = alarm(5);
+    printf("Tempo restante do alarme anterior: %d\n", tempo_restante);
     
     // Loop sem atividade
     while(true) {
