@@ -6,7 +6,7 @@
 // Função signal handler responsável por tratar o sinal
 void detectarAlarme(int sig) {
     printf("O alarme expirou!\n");
-    exit(1);
+    exit(0);
 }
 
 int main(int argc, char *argv[]) {
