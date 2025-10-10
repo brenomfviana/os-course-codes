@@ -7,11 +7,11 @@ using namespace std;
 void strange_sum(int &x, int id) {
     for (int i = 0; i < 5; i++) {
         --x;
-        this_thread::sleep_for(chrono::seconds(1));
         ++x;
         if (x != 10) {
             printf("Thread %d - O valor de x é %d\n", id, x);
         }
+        this_thread::sleep_for(chrono::seconds(1));
     }
 }
 
