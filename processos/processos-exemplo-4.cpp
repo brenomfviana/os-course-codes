@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
             printf("Processo Filho: %d\n", getpid());
             sleep(2);
         }
-        exit(1);
+        exit(0);
     }
 
     return 0;
