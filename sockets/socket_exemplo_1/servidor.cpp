@@ -17,11 +17,11 @@ int main() {
     std::cout << "Servidor - aguardando conexões..." << std::endl;
     
     sockaddr endereco_cliente;
-    socklen_t endereco_cliente_size;
+    socklen_t tamanho_endereco_cliente;
     int socket_cliente_id = accept(
         socket_id,
         &endereco_cliente,
-        &endereco_cliente_size
+        &tamanho_endereco_cliente
     );
     
     char msg[1024]{};

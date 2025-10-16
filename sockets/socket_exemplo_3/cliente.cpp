@@ -9,7 +9,6 @@ struct Mensagem {
     int tipo;
 };
 
-
 int main() {
     int socket_id = socket(AF_INET, SOCK_STREAM, 0);
     
@@ -27,12 +26,13 @@ int main() {
     Mensagem msg{};
     msg.id = 1;
     msg.tipo = 10;
-    strcpy(msg.texto, "Olá servidor 4!");
+    strcpy(msg.texto, "Olá servidor!");
 
     send(socket_id, &msg, sizeof(msg), 0);
     
     std::cout << "Cliente - fechando conexões..." << std::endl;
     
     close(socket_id);
+
     return 0;
 }

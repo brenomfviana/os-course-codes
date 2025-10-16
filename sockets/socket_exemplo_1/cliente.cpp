@@ -17,8 +17,8 @@ int main() {
     
     std::cout << "Cliente - enviando mensagem ao servidor..." << std::endl;
 
-    const char* mensagem = "Olá servidor!";
-    send(socket_id, mensagem, strlen(mensagem), 0);
+    const char* msg = "Olá servidor!";
+    send(socket_id, msg, strlen(msg), 0);
     
     std::cout << "Cliente - fechando conexões..." << std::endl;
     

@@ -10,7 +10,7 @@ struct Mensagem {
     int tipo;
 };
 
-void tratar_cliente(int socket_cliente_id) {
+void tratar_requisicao_cliente(int socket_cliente_id) {
     std::cout << "Servidor - conexão estabelecida..." << std::endl;
     Mensagem msg{};
     recv(socket_cliente_id, &msg, sizeof(msg), 0);
@@ -18,8 +18,8 @@ void tratar_cliente(int socket_cliente_id) {
               << "\nServidor - mensagem recebida - ID: " << msg.id 
               << ", Texto: " << msg.texto 
               << ", Tipo: " << msg.tipo << std::endl;
-    std::cout << "Servidor - fechando conexão..." << std::endl;
-    sleep(5);
+    std::cout << "Servidor - fechando conexão..." << std::endl << std::endl;
+    sleep(60);
     close(socket_cliente_id);
 }
 
@@ -41,7 +41,7 @@ int main() {
         if (socket_cliente_id != -1) {
             std::cout << "Servidor - conexão aceita" << std::endl;
         }
-        std::thread(tratar_cliente, socket_cliente_id).detach();
+        std::thread(tratar_requisicao_cliente, socket_cliente_id).detach();
     }
     
     close(socket_id);
