@@ -1,3 +1,5 @@
+// Exemplo quebrado
+
 #include <cstdio>
 #include <thread>
 #include <chrono>
@@ -8,10 +10,7 @@ int NUMTHREADS = 4;
 
 void run(int i) {
     for (int j=0; j<5; j++) {
-        printf(
-            "Thread #%d está executando no núcleo %d\n",
-            i, sched_getcpu()
-        );
+        printf("Thread #%d está executando no núcleo %d\n", i, sched_getcpu());
         this_thread::sleep_for(chrono::seconds (1));
     }
 }
